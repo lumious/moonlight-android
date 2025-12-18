@@ -45,17 +45,13 @@
     <application
         android:allowBackup="true"
         android:fullBackupContent="@xml/backup_rules"
-        android:dataExtractionRules="@xml/backup_rules_s"
         android:networkSecurityConfig="@xml/network_security_config"
         android:isGame="true"
         android:banner="@drawable/atv_banner"
-        android:appCategory="game"
         android:icon="@mipmap/ic_launcher"
         android:installLocation="auto"
-        android:gwpAsanMode="always"
-        android:localeConfig="@xml/locales_config"
-        android:enableOnBackInvokedCallback="false"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:enableOnBackInvokedCallback="false">
 
         <provider
             android:name=".PosterContentProvider"
@@ -90,7 +86,6 @@
             android:name=".PcView"
             android:exported="true"
             android:resizeableActivity="true"
-            android:enableOnBackInvokedCallback="true"
             android:configChanges="mcc|mnc|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|uiMode|orientation|screenSize|smallestScreenSize|layoutDirection">
 
             <meta-data android:name="WindowManagerPreference:FreeformWindowSize" android:value="system-default" />
@@ -111,7 +106,6 @@
             android:noHistory="true"
             android:exported="true"
             android:resizeableActivity="true"
-            android:enableOnBackInvokedCallback="true"
             android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|uiMode|orientation|screenSize|smallestScreenSize|layoutDirection">
             <meta-data android:name="WindowManagerPreference:FreeformWindowSize" android:value="system-default" />
             <meta-data android:name="WindowManagerPreference:FreeformWindowOrientation" android:value="landscape" />
@@ -119,7 +113,6 @@
         <activity
             android:name=".AppView"
             android:resizeableActivity="true"
-            android:enableOnBackInvokedCallback="true"
             android:configChanges="mcc|mnc|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|uiMode|orientation|screenSize|smallestScreenSize|layoutDirection">
             <meta-data android:name="WindowManagerPreference:FreeformWindowSize" android:value="system-default" />
             <meta-data android:name="WindowManagerPreference:FreeformWindowOrientation" android:value="landscape" />
@@ -127,7 +120,6 @@
         <activity
             android:name=".preferences.StreamSettings"
             android:resizeableActivity="true"
-            android:enableOnBackInvokedCallback="true"
             android:theme="@style/BaseActivityTheme"
             android:configChanges="mcc|mnc|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|uiMode|orientation|screenSize|smallestScreenSize|layoutDirection"
             android:label="Streaming Settings">
@@ -138,7 +130,6 @@
             android:name=".preferences.AddComputerManually"
             android:resizeableActivity="true"
             android:windowSoftInputMode="stateVisible"
-            android:enableOnBackInvokedCallback="true"
             android:configChanges="mcc|mnc|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|uiMode|orientation|screenSize|smallestScreenSize|layoutDirection"
             android:label="Add Computer Manually">
             <meta-data android:name="WindowManagerPreference:FreeformWindowSize" android:value="system-default" />
@@ -208,7 +199,6 @@
         <activity
             android:name=".HelpActivity"
             android:resizeableActivity="true"
-            android:enableOnBackInvokedCallback="true"
             android:configChanges="mcc|mnc|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|uiMode|orientation|screenSize|smallestScreenSize|layoutDirection">
             <meta-data android:name="WindowManagerPreference:FreeformWindowSize" android:value="system-default" />
             <meta-data android:name="WindowManagerPreference:FreeformWindowOrientation" android:value="landscape" />
