@@ -49,18 +49,18 @@ jobs:
       - name: List APK files
         run: |
           echo "=== Release APKs ==="
-          find app/build/outputs/apk/release -name "*.apk" -type f
+          find app/build/outputs/apk/*/release -name "*.apk" -type f
           echo "=== Debug APKs ==="
-          find app/build/outputs/apk/debug -name "*.apk" -type f
+          find app/build/outputs/apk/*/debug -name "*.apk" -type f
 
       - name: Upload Release APKs as artifacts
         uses: actions/upload-artifact@v4
         with:
           name: release-apks
-          path: app/build/outputs/apk/release/*.apk
+          path: app/build/outputs/apk/*/release/*.apk
 
       - name: Upload Debug APKs as artifacts
         uses: actions/upload-artifact@v4
         with:
           name: debug-apks
-          path: app/build/outputs/apk/debug/*.apk
+          path: app/build/outputs/apk/*/debug/*.apk
