@@ -133,7 +133,7 @@
    - name: Build Signed Release APK
      run: ./gradlew assembleRelease
      env:
-       KEYSTORE_FILE: ../keystore.jks
+       KEYSTORE_FILE: keystore.jks
        KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
        KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
        KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
@@ -144,16 +144,22 @@
    android {
        signingConfigs {
            release {
-               storeFile file(System.getenv("KEYSTORE_FILE") ?: "keystore.jks")
-               storePassword System.getenv("KEYSTORE_PASSWORD")
-               keyAlias System.getenv("KEY_ALIAS")
-               keyPassword System.getenv("KEY_PASSWORD")
+               // 仅在CI环境中使用签名配置
+               if (System.getenv("KEYSTORE_FILE")) {
+                   storeFile file(System.getenv("KEYSTORE_FILE"))
+                   storePassword System.getenv("KEYSTORE_PASSWORD")
+                   keyAlias System.getenv("KEY_ALIAS")
+                   keyPassword System.getenv("KEY_PASSWORD")
+               }
            }
        }
        
        buildTypes {
            release {
-               signingConfig signingConfigs.release
+               // 仅在签名配置可用时使用
+               if (System.getenv("KEYSTORE_FILE")) {
+                   signingConfig signingConfigs.release
+               }
                // ... 其他配置
            }
        }
